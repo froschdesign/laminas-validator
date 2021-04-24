@@ -34,7 +34,7 @@
         "laminas/laminas-cache": "^2.6.1",
         "laminas/laminas-coding-standard": "~1.0.0",
         "laminas/laminas-config": "^2.6",
-        "laminas/laminas-db": "^2.7",
+        "laminas/laminas-db": "^2.12",
         "laminas/laminas-filter": "^2.6",
         "laminas/laminas-http": "^2.14.2",
         "laminas/laminas-i18n": "^2.6",

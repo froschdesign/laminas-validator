@@ -9,9 +9,11 @@
 namespace Laminas\Validator;
 
 use Interop\Container\ContainerInterface;
+use Laminas\Db\Adapter\AdapterServiceDelegator;
 use Laminas\I18n\Validator as I18nValidator;
 use Laminas\ServiceManager\AbstractPluginManager;
 use Laminas\ServiceManager\Exception\InvalidServiceException;
+use Laminas\ServiceManager\Factory\DelegatorFactoryInterface;
 use Laminas\ServiceManager\Factory\InvokableFactory;
 
 class ValidatorPluginManager extends AbstractPluginManager
@@ -479,6 +481,18 @@ class ValidatorPluginManager extends AbstractPluginManager
         'laminasvalidatortimezone'                 => InvokableFactory::class,
         'laminasvalidatoruri'                      => InvokableFactory::class,
         'laminasvalidatoruuid'                     => InvokableFactory::class,
+    ];
+
+    /**
+     * @var string[][]|DelegatorFactoryInterface[][]
+     */
+    protected $delegators = [
+        Db\NoRecordExists::class => [
+            AdapterServiceDelegator::class,
+        ],
+        Db\RecordExists::class   => [
+            AdapterServiceDelegator::class,
+        ],
     ];
 
     /**
